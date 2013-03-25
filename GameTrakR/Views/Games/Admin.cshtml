@@ -1,0 +1,76 @@
+﻿@{
+	ViewBag.Title = "Game Administration - All Games";
+}
+@section scripts
+{
+	<script src="~/Scripts/GamesAdmin.js" type="text/javascript"></script>
+	<script src="~/Scripts/GamesAdminHub.js" type="text/javascript"></script>
+}
+
+<button onclick="CreateNewGameDialog()">New Game</button>
+<ul id="gamesContainer">
+		<li gameID="empty" style="display: none">
+		<div>
+			<p class="gameTeams" style="font-weight: bolder;"></p>
+			<section>
+				<div>
+					<span><strong>Score:&nbsp</strong></span> <span class="scoreSummary"></span>
+				</div>
+				<div>
+					<span><strong>Inning:&nbsp</strong></span> <span class="inningLabel"></span>
+				</div>
+				<div>
+					<span><strong>Outs:&nbsp</strong></span> <span class="outs"></span>
+				</div>
+				<div>
+					<span><strong>Count on Batter:&nbsp</strong></span> <span class="countOnBatter"></span>
+				</div>
+				<div>
+					<span><strong>Runners on Base:&nbsp</strong></span> <span class="runnersOnBase"></span>
+				</div>
+				<div>
+					<span><strong>Last Play:&nbsp</strong></span> <span class="lastPlay"></span>
+				</div>
+			</section>
+			<button class="editGame">Edit Game Scenario</button>
+		</div>
+	</li>
+@foreach (GameTrakR.Code.Game game in Model.Games)
+{
+	<li gameID="@game.GameID">
+		<div>
+			<p class="gameTeams" style="font-weight: bolder;">@game.GameTeams</p>
+			<section>
+				<div>
+					<span><strong>Score:&nbsp</strong></span>
+					<span class="scoreSummary">@game.ScoreSummary</span>
+				</div>
+				<div>
+					<span><strong>Inning:&nbsp</strong></span>
+					<span class="inningLabel">@game.CurrentGameScenario.InningLabel</span>
+				</div>
+				<div>
+					<span><strong>Outs:&nbsp</strong></span>
+					<span class="outs">@game.CurrentGameScenario.Outs</span>
+				</div>
+				<div>
+					<span><strong>Count on Batter:&nbsp</strong></span>
+					<span class="countOnBatter">@game.CurrentGameScenario.CountOnBatter</span>
+				</div>
+				<div>
+					<span><strong>Runners on Base:&nbsp</strong></span>
+					<span class="runnersOnBase">@game.CurrentGameScenario.RunnersOnBase</span>
+				</div>
+				<div>
+					<span><strong>Last Play:&nbsp</strong></span>
+					<span class="lastPlay">@game.CurrentGameScenario.LastPlay</span>
+				</div>
+			</section>
+			<button class="editGame" onclick="CreateScenarioDialog(@game.GameID)">Edit Game Scenario</button>
+		</div>
+	</li>
+}
+</ul>
+<button onclick="Reset()">Reset Games List</button>
+<div id="msgContainer">
+</div>
