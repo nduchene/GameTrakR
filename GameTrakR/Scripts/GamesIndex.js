@@ -34,7 +34,7 @@ function UpdateGame(game) {
 	$gameLi.find(".runnersOnBase").text(game.CurrentGameScenario.RunnersOnBase);
 	$gameLi.find(".lastPlay").text(game.CurrentGameScenario.LastPlay);
 
-	$gameLi.effect("highlight", {}, 5000);
+	$gameLi.effect("highlight", {}, 750);
 }
 
 function ResetGameList() {
