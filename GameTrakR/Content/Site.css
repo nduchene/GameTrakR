@@ -5,7 +5,8 @@
 {
 	list-style-type: none; 
 	margin: 0; 
-	padding: 5px; 
+	padding: 5px;
+	margin: 10px 0; 
 }
 
 #gamesContainer li  

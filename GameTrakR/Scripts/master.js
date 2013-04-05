@@ -1,7 +1,10 @@
-﻿/// <reference path="~/Scripts/jquery-1.9.1.js" />
-/// <reference path="~/Scripts/jquery-ui-1.10.1.js" />
+﻿/// <reference path="jquery-1.9.1.js" />
+/// <reference path="jquery-ui-1.10.1.js" />
+/// <reference path="jquery.jgrowl.js" />
 
 $(function () {
+	$("#ulMenu").menu();
+
 	$("#gamesContainer").sortable({
 		placeholder: "ui-state-highlight",
 		forcePlaceholderSize: true
@@ -9,19 +12,15 @@ $(function () {
 });
 
 function DisplayMessage(msg) {
-	var $msg = $("#msgContainer");
-	var $div = $("<div />");
-
-	$div.html(msg);
-	$msg.append($div);
-	$div.effect("highlight", {}, 5000, function () { $(this).hide().remove() });
+	$.jGrowl(msg, { theme: 'smoke' });
 }
 
 function CreateNewGame(game) {
-	var $gameLi = $("#gamesContainer").children().first().clone();
+	var $gameLi = $("#gamesContainer").children("[gameID='empty']").clone();
 	$gameLi.attr("gameID", game.GameID);
 	$gameLi.find("button.editGame").attr("onclick", "CreateScenarioDialog(" + game.GameID + ")");
-	$("#gamesContainer").append($gameLi);
+	$gameLi.find("input.manageSubscription").attr("onchange", "ManageSubscription(" + game.GameID + ")");
+	$("#gamesContainer").prepend($gameLi);
 	UpdateGame(game);
 }
 
@@ -36,6 +35,19 @@ function UpdateGame(game) {
 	$gameLi.find(".lastPlay").text(game.CurrentGameScenario.LastPlay);
 
 	$gameLi.effect("highlight", {}, 750);
+}
+
+function ManageSubscription(gameID) {
+	var $cbSubscription = $("li[gameID='" + gameID + "']").find(".manageSubscription");
+
+	if ($cbSubscription.is(":checked"))
+		SubscribeToGame(gameID);
+	else
+		UnsubscribeToGame(gameID);
+}
+
+function ResetGameList() {
+	$("#gamesContainer").children().not("[gameID='empty']").remove();
 }
 
 function CreateNewGameDialog() {
@@ -100,8 +112,4 @@ function CreateScenarioDialog(gameID) {
 			$div.remove();
 		}
 	});
-}
-
-function ResetGameList() {
-	$("#gamesContainer").children().not("[gameID='empty']").remove();
 }
