@@ -38,7 +38,7 @@ namespace GameTrakR.Code
 
 				_runnersString = String.Join(", ", runnersList.ToArray());
 
-				return !String.IsNullOrEmpty(_runnersString) ? _runnersString : "None";
+				return String.Format("Runners on: {0}", !String.IsNullOrEmpty(_runnersString) ? _runnersString : "None");
 			}
 		}
 
@@ -46,12 +46,7 @@ namespace GameTrakR.Code
 		{
 			get
 			{
-				if (this.Balls > 3 || this.Strikes > 2)
-				{
-					this.Balls = 0;
-					this.Strikes = 0;
-				}
-				return String.Format("{0} Balls, {1} Strikes", this.Balls, this.Strikes);
+				return String.Format("{0} - {1}", this.Balls, this.Strikes);
 			}
 		}
 
@@ -71,6 +66,14 @@ namespace GameTrakR.Code
 					_inningSuffix = "th";
 
 				return String.Format("{0} of {1}{2} Inning", _topBottom, this.Inning, _inningSuffix);
+			}
+		}
+
+		public string OutsLabel
+		{
+			get
+			{
+				return String.Format("{0} {1}", this.Outs, this.Outs == 1 ? "Out" : "Outs");
 			}
 		}
 		#endregion

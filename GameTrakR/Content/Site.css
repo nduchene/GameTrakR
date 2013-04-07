@@ -1,4 +1,7 @@
-﻿body {
+﻿body 
+{
+	background-image: url("crestock-499633-2560x1600.jpg");
+	background-size: 100%;
 }
 
 #gamesContainer  
@@ -16,4 +19,9 @@
 	display: inline-block; 
 	width: 250px; 
 	border: 2px solid black 
+}
+
+.centered
+{
+	text-align: center;
 }

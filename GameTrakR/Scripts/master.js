@@ -12,7 +12,7 @@ $(function () {
 });
 
 function DisplayMessage(msg) {
-	$.jGrowl(msg, { theme: 'smoke' });
+	$.jGrowl(msg);
 }
 
 function CreateNewGame(game) {
@@ -26,10 +26,14 @@ function CreateNewGame(game) {
 
 function UpdateGame(game) {
 	var $gameLi = $("li[gameID='" + game.GameID + "']", $("#gamesContainer"));
-	$gameLi.find(".gameTeams").text(game.GameTeams);
-	$gameLi.find(".scoreSummary").text(game.ScoreSummary);
+	//$gameLi.find(".gameTeams").text(game.GameTeams);
+	//$gameLi.find(".scoreSummary").text(game.ScoreSummary);
+	$gameLi.find(".awayTeam").text(game.AwayTeam);
+	$gameLi.find(".homeTeam").text(game.HomeTeam);
+	$gameLi.find(".awayScore").text(game.CurrentGameScenario.AwayScore);
+	$gameLi.find(".homeScore").text(game.CurrentGameScenario.HomeScore);
 	$gameLi.find(".inningLabel").text(game.CurrentGameScenario.InningLabel);
-	$gameLi.find(".outs").text(game.CurrentGameScenario.Outs);
+	$gameLi.find(".outs").text(game.CurrentGameScenario.OutsLabel);
 	$gameLi.find(".countOnBatter").text(game.CurrentGameScenario.CountOnBatter);
 	$gameLi.find(".runnersOnBase").text(game.CurrentGameScenario.RunnersOnBase);
 	$gameLi.find(".lastPlay").text(game.CurrentGameScenario.LastPlay);

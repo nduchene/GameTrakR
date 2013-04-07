@@ -8,62 +8,92 @@
 
 <ul id="gamesContainer">
 	<li gameID="empty" style="display: none">
-		<div>
-			<p class="gameTeams" style="font-weight: bolder;"></p>
-			<section>
-				<div>
-					<span><strong>Score:&nbsp</strong></span> <span class="scoreSummary"></span>
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span6 centered">
+					<span class="awayTeam"></span>
 				</div>
-				<div>
-					<span><strong>Inning:&nbsp</strong></span> <span class="inningLabel"></span>
+				<div class="span6 centered">
+					<span class="homeTeam"></span>
 				</div>
-				<div>
-					<span><strong>Outs:&nbsp</strong></span> <span class="outs"></span>
+			</div>
+			<div class="row-fluid">
+				<div class="span6 centered">
+					<span class="awayScore"></span>
 				</div>
-				<div>
-					<span><strong>Count on Batter:&nbsp</strong></span> <span class="countOnBatter"></span>
+				<div class="span6 centered">
+					<span class="homeScore"></span>
 				</div>
-				<div>
-					<span><strong>Runners on Base:&nbsp</strong></span> <span class="runnersOnBase"></span>
+			</div>
+			<div class="row-fluid">
+				<div class="span12 centered">
+					<span class="inningLabel"></span>
 				</div>
-				<div>
-					<span><strong>Last Play:&nbsp</strong></span> <span class="lastPlay"></span>
+			</div>
+			<div class="row-fluid">
+				<div class="span6">
+					<span class="outs pull-left"></span>
 				</div>
-			</section>
+				<div class="span6">
+					<span class="countOnBatter pull-right"></span>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12 centered">
+					<span class="runnersOnBase"></span>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12 centered">
+					<span class="lastPlay"></span>
+				</div>
+			</div>
 		</div>
 	</li>
 @foreach (GameTrakR.Code.Game game in Model.Games)
 {
 	<li gameID="@game.GameID">
-		<div>
-			<p class="gameTeams" style="font-weight: bolder;">@game.GameTeams</p>
-			<section>
-				<div>
-					<span><strong>Score:&nbsp</strong></span>
-					<span class="scoreSummary">@game.ScoreSummary</span>
+		<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span6 centered">
+						<span class="awayTeam">@game.AwayTeam</span>
+					</div>
+					<div class="span6 centered">
+						<span class="homeTeam">@game.HomeTeam</span>
+					</div>
 				</div>
-				<div>
-					<span><strong>Inning:&nbsp</strong></span>
-					<span class="inningLabel">@game.CurrentGameScenario.InningLabel</span>
+				<div class="row-fluid">
+					<div class="span6 centered">
+						<span class="awayScore">@game.CurrentGameScenario.AwayScore</span>
+					</div>
+					<div class="span6 centered">
+						<span class="homeScore">@game.CurrentGameScenario.HomeScore</span>
+					</div>
 				</div>
-				<div>
-					<span><strong>Outs:&nbsp</strong></span>
-					<span class="outs">@game.CurrentGameScenario.Outs</span>
+				<div class="row-fluid">
+					<div class="span12 centered">
+						<span class="inningLabel">@game.CurrentGameScenario.InningLabel</span>
+					</div>
 				</div>
-				<div>
-					<span><strong>Count on Batter:&nbsp</strong></span>
-					<span class="countOnBatter">@game.CurrentGameScenario.CountOnBatter</span>
+				<div class="row-fluid">
+					<div class="span6">
+						<span class="outs pull-left">@game.CurrentGameScenario.OutsLabel</span>
+					</div>
+					<div class="span6">
+						<span class="countOnBatter pull-right">@game.CurrentGameScenario.CountOnBatter</span>
+					</div>
 				</div>
-				<div>
-					<span><strong>Runners on Base:&nbsp</strong></span>
-					<span class="runnersOnBase">@game.CurrentGameScenario.RunnersOnBase</span>
+				<div class="row-fluid">
+					<div class="span12 centered">
+						<span class="runnersOnBase">@game.CurrentGameScenario.RunnersOnBase</span>
+					</div>
 				</div>
-				<div>
-					<span><strong>Last Play:&nbsp</strong></span>
-					<span class="lastPlay">@game.CurrentGameScenario.LastPlay</span>
+				<div class="row-fluid">
+					<div class="span12 centered">
+						<span class="lastPlay">@game.CurrentGameScenario.LastPlay</span>
+					</div>
 				</div>
-			</section>
-		</div>
+			</div>
 	</li>
 }
 </ul>
