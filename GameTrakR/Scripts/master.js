@@ -26,31 +26,19 @@ function CreateNewGame(game) {
 
 function UpdateGame(game) {
 	var $gameLi = $("li[gameID='" + game.GameID + "']", $("#gamesContainer"));
-	$gameLi.find(".awayTeam").text(game.AwayTeam);
-	$gameLi.find(".homeTeam").text(game.HomeTeam);
 
-	var $awayScore = $gameLi.find(".awayScore");
-	var $homeScore = $gameLi.find(".homeScore");
-
-	$awayScore.fadeOut("slow", function () {
-		$(this).text(game.CurrentGameScenario.AwayScore);
+	$gameLi.fadeOut("slow", function () {
+		$(this).find(".awayTeam").text(game.AwayTeam);
+		$(this).find(".homeTeam").text(game.HomeTeam);
+		$(this).find(".awayScore").text(game.CurrentGameScenario.AwayScore);
+		$(this).find(".homeScore").text(game.CurrentGameScenario.HomeScore);
+		$(this).find(".inningLabel").text(game.CurrentGameScenario.InningLabel);
+		$(this).find(".outs").text(game.CurrentGameScenario.OutsLabel);
+		$(this).find(".countOnBatter").text(game.CurrentGameScenario.CountOnBatter);
+		$(this).find(".runnersOnBase").text(game.CurrentGameScenario.RunnersOnBase);
+		$(this).find(".lastPlay").text(game.CurrentGameScenario.LastPlay);
 		$(this).fadeIn("slow");
 	});
-
-	$homeScore.fadeOut("slow", function () {
-		$(this).text(game.CurrentGameScenario.HomeScore);
-		$(this).fadeIn("slow");
-	});
-
-//	$gameLi.find(".awayScore").text(game.CurrentGameScenario.AwayScore);
-//	$gameLi.find(".homeScore").text(game.CurrentGameScenario.HomeScore);
-	$gameLi.find(".inningLabel").text(game.CurrentGameScenario.InningLabel);
-	$gameLi.find(".outs").text(game.CurrentGameScenario.OutsLabel);
-	$gameLi.find(".countOnBatter").text(game.CurrentGameScenario.CountOnBatter);
-	$gameLi.find(".runnersOnBase").text(game.CurrentGameScenario.RunnersOnBase);
-	$gameLi.find(".lastPlay").text(game.CurrentGameScenario.LastPlay);
-
-	$gameLi.effect("highlight", {}, 750);
 }
 
 function ManageSubscription(gameID) {
