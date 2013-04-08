@@ -1,5 +1,6 @@
 ﻿body 
 {
+	padding-top: 40px;
 	background-image: url("fieldbackground.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -20,7 +21,7 @@
 	margin: 3px; 
 	padding: 3px;
 	display: inline-block; 
-	width: 250px;
+	width: 200px;
 }
 
 .centered
@@ -79,6 +80,7 @@
 .awayTeam, .homeTeam
 {
 	color: #588607;
+	font-size: 1.4em;
 }
 
 .awayScore, .homeScore
@@ -86,4 +88,11 @@
 	font-size: 6em;
 	font-weight: bolder;
 	color: White;
+	vertical-align: middle;
+	padding: 10px 0;
+}
+
+.scoreRow
+{
+	min-height: 65px;
 }
