@@ -9,8 +9,8 @@
 <ul id="gamesContainer">
 	<li gameID="empty" style="display: none">
 		<input class="manageSubscription" type="checkbox" /><span>Subscribed</span>
-		<div class="container-fluid">
-			<div class="row-fluid">
+		<div class="container-fluid no-padding">
+			<div class="row-fluid score">
 				<div class="span6 centered">
 					<span class="awayTeam"></span>
 				</div>
@@ -18,7 +18,7 @@
 					<span class="homeTeam"></span>
 				</div>
 			</div>
-			<div class="row-fluid">
+			<div class="row-fluid score">
 				<div class="span6 centered">
 					<span class="awayScore"></span>
 				</div>
@@ -26,12 +26,12 @@
 					<span class="homeScore"></span>
 				</div>
 			</div>
-			<div class="row-fluid">
+			<div class="row-fluid inning">
 				<div class="span12 centered">
 					<span class="inningLabel"></span>
 				</div>
 			</div>
-			<div class="row-fluid">
+			<div class="row-fluid inningInfo">
 				<div class="span6">
 					<span class="outs pull-left"></span>
 				</div>
@@ -39,12 +39,12 @@
 					<span class="countOnBatter pull-right"></span>
 				</div>
 			</div>
-			<div class="row-fluid">
+			<div class="row-fluid runnersOn">
 				<div class="span12 centered">
 					<span class="runnersOnBase"></span>
 				</div>
 			</div>
-			<div class="row-fluid">
+			<div class="row-fluid lastPlayInfo">
 				<div class="span12 centered">
 					<span class="lastPlay"></span>
 				</div>
@@ -55,8 +55,8 @@
 {
 	<li gameID="@game.GameID">
 		<input class="manageSubscription" type="checkbox" onchange="ManageSubscription(@game.GameID)" /><span>Subscribed</span>
-		<div class="container-fluid">
-				<div class="row-fluid">
+		<div class="container-fluid no-padding">
+				<div class="row-fluid score">
 					<div class="span6 centered">
 						<span class="awayTeam">@game.AwayTeam</span>
 					</div>
@@ -64,7 +64,7 @@
 						<span class="homeTeam">@game.HomeTeam</span>
 					</div>
 				</div>
-				<div class="row-fluid">
+				<div class="row-fluid score">
 					<div class="span6 centered">
 						<span class="awayScore">@game.CurrentGameScenario.AwayScore</span>
 					</div>
@@ -72,12 +72,12 @@
 						<span class="homeScore">@game.CurrentGameScenario.HomeScore</span>
 					</div>
 				</div>
-				<div class="row-fluid">
+				<div class="row-fluid inning">
 					<div class="span12 centered">
 						<span class="inningLabel">@game.CurrentGameScenario.InningLabel</span>
 					</div>
 				</div>
-				<div class="row-fluid">
+				<div class="row-fluid inningInfo">
 					<div class="span6">
 						<span class="outs pull-left">@game.CurrentGameScenario.OutsLabel</span>
 					</div>
@@ -85,12 +85,12 @@
 						<span class="countOnBatter pull-right">@game.CurrentGameScenario.CountOnBatter</span>
 					</div>
 				</div>
-				<div class="row-fluid">
+				<div class="row-fluid runnersOn">
 					<div class="span12 centered">
 						<span class="runnersOnBase">@game.CurrentGameScenario.RunnersOnBase</span>
 					</div>
 				</div>
-				<div class="row-fluid">
+				<div class="row-fluid lastPlayInfo">
 					<div class="span12 centered">
 						<span class="lastPlay">@game.CurrentGameScenario.LastPlay</span>
 					</div>

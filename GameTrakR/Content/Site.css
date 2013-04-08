@@ -1,7 +1,10 @@
 ﻿body 
 {
 	background-image: url("fieldbackground.jpg");
-	background-size: 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	
 }
 
 #gamesContainer  
@@ -9,19 +12,78 @@
 	list-style-type: none; 
 	margin: 0; 
 	padding: 5px;
-	margin: 10px 0; 
+	margin: 10px 0;
 }
 
 #gamesContainer li  
 {
 	margin: 3px; 
-	padding: 3px; 
+	padding: 3px;
 	display: inline-block; 
-	width: 250px; 
-	border: 2px solid black 
+	width: 250px;
 }
 
 .centered
 {
 	text-align: center;
+}
+
+.score
+{
+	background-color: #D0E2B0;
+	padding: 5px 0;
+}
+
+.inningInfo, .inning
+{
+	background-color: White;
+	padding: 5px 0;
+	color: #C1C1C1;
+}
+
+.inning
+{
+	font-size: 1em;
+}
+
+.inningInfo
+{
+	font-size: 1.5em;
+}
+
+.outs
+{
+	padding-left: 10px;
+}
+
+.countOnBatter
+{
+	padding-right: 10px;	
+}
+
+.runnersOn, .lastPlayInfo
+{
+	background-color: #F3F3F3;
+	padding: 5px 0;
+	color: #588607;
+}
+
+.no-padding
+{
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.awayTeam, .homeTeam
+{
+	color: #588607;
+}
+
+.awayScore, .homeScore
+{
+	font-size: 6em;
+	font-weight: bolder;
+	color: White;
 }
